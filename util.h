@@ -36,7 +36,7 @@ int BinS(int v[], int size, int n)
 return 0;
 }
 
-// ----------------------------------------------->
+// -------------_ STELEN -------------------->
 int _strlen(char *vs){
 	int n = 0;
 	for(int i = 0; vs[i] ; i++){
