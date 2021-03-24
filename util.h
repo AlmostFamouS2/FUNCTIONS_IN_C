@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 
-// =========== SORT FUNCION ====================>
+// ============== SORT ===================>
 void sort(int v[], int size)
 {
 	int val, k;
@@ -16,7 +17,7 @@ void sort(int v[], int size)
 		v[k+1] = val;
 	}
 }
-// ---------- BINARY SEARCH --------------------->
+// ------------- BinS ------------------->
 
 int BinS(int v[], int size, int n)
 {
@@ -35,7 +36,7 @@ int BinS(int v[], int size, int n)
 return 0;
 }
 
-// -------------- STRLEN FUNC --------------------->
+// ----------------------------------------------->
 int _strlen(char *vs){
 	int n = 0;
 	for(int i = 0; vs[i] ; i++){
@@ -46,6 +47,13 @@ int _strlen(char *vs){
 return n;
 
 }
+// -------------- ILEN -> INTEGER LENGHT ----------------------------->
+int ilen(int li[]){
+	int n = 0;
+	while(li[n])
+		n+=4;
+return n;
+}
 /*
 int _strlen(char *str){
 
@@ -55,32 +63,20 @@ int _strlen(char *str){
 return i;
 }
 */
-// --------------  MAXIMUM ----------------------->
+// --------------- MAX -------------------------->
 int max(int a, int b){
 	return a*(a>b) + b*(b>=a);
 }
-// -------------- MINIMUM  ----------------------->
+// --------------- MIN ------------------------->
 int min(int a, int b){
 	return a*(a<b) + b*(b<=a);
 }
-// ----------STRING COPY ------------------------->
+// -------------  _STRCPY ------------------------>
 void _strcpy(char *v1, char *v2)
 {
 	while ( *v1++ = *v2++ );
 }
 // ------------------------------------------------>
-/*  // I haven't ended up this
-
-void sec_copy(char *dest, char *begin)
-{
-		if(_strlen(begin) > _strlen(dest)){
-			fprintf(stderr, "NOT POSSIBLE TO COPY STRING GREATER THAN ANOTHER IN STACK!\n");
-			exit(1);
-		}
-	while ( *dest++ = *begin++ );
-}
-*/
-// ----------- STRING COMPARE ---------------------->
 int _strcmp(char *a, char *b){
 	if(_strlen(a) != _strlen(b))
 		return 0;
@@ -91,7 +87,7 @@ int _strcmp(char *a, char *b){
 
 	return 1;
 }
-// -----------TO LOWERCASE ------------------------->
+// ----------------- TO_LOWER ---------------------->
 char *to_lower(char* str){
     for(int i=0; str[i] != '\0'; i++){
         if(str[i] >= 65 && str[i] <=90)
@@ -100,7 +96,7 @@ char *to_lower(char* str){
     return str;
 }
 
-// ------------STRING SEARCH ---------------------->
+// ---------------- STRSRCH ---------------------->
 int strsrch(char *str, char s){
 	int i;  // ITERATOR
 
@@ -109,7 +105,7 @@ int strsrch(char *str, char s){
 			break;
     return i;
 }
-// ------------------------------------------------>
+// --------------- FILE_CP ----------------------->
 void file_cp(char *file1, char *file2)
 {
 	FILE *fin;
@@ -125,7 +121,7 @@ void file_cp(char *file1, char *file2)
 	fclose(fin);
 	fclose(fout);
 }
-// -------- DECIMAL TO BINARY ----------------------->
+// ---------------- DEC2BIN ------------------->
 void dec2bin(int num){
 
 	int c[16] = {0}, count = 0;
@@ -140,38 +136,36 @@ void dec2bin(int num){
 	printf("%d",c[i]);
 puts("");
 }
-// --------------  _ATOI NATIVA   -------------------->
+// --------------  _ATOI  -------------------->
 
 int _atoi(char *argv){
 	short *c = (short *) argv;
 	return *c - 0x30;
 }
 
-// ------------   STARTSWITH   --------------------->
+// ---------------STARTSWITH-------------------------->
 
 short startswith(char chr, char *vec){
 	return (vec[0] == chr);
 }
 
-
-/*int startswith(char chr, char *vec){
-	(vec[0] == chr) ? 1 : 0;
-}
-*/
-// ------------ ENDSWITH -------------------------->
+// -----------------ENDSWITH-------------------------->
 
 int endswith(char str, char p[]){
 	return (p[_strlen(p) - 1] == str);
 }
 
+// ------------- _memcpy--------------------------->
+#if defined __x86_64__
+#define MEM 8
+#elif __i386__
+#define MEM 4
+#endif
 
-/*
-short endswith(char str, char *p){
-	if( p[_strlen(p)] == str){
-		return 1;
-	} else {
-		return 0;
-	}
-} */
+void _memcpy(char *s, char *t, int8_t size){
+	char *p = s, *q = t;
 
-// -------------------------------------------------->
+size += MEM; // IDK why but... this works only with it
+	while( size-- )
+		*p++ = *q++;
+}

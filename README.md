@@ -17,3 +17,4 @@
 * startswith - return TRUE if the first CHAR corresponds to the first item of a given array.
 *  endswith -- returun TRUE if the first CHAR correspons to the first item of a given array.
 * atoi -- Converts the string into a SHORT integer.
+* _memcpy = copies a string to another specifying the lenght.
