@@ -17,6 +17,18 @@ void sort(int v[], int size)
 		v[k+1] = val;
 	}
 }
+// =========== REVERSE_SORT =============>
+void rsort(int arr[], int len){
+        int k, val;
+
+        for(int i = 1; i < len; i++){
+                val = arr[i];
+                for( k = i-1; k >= 0 && val > arr[k]; k--)
+                        arr[k+1] = arr[k];
+
+                arr[k+1] = val;
+        }
+}
 // ------------- BinS ------------------->
 
 int BinS(int v[], int size, int n)
