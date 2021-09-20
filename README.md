@@ -1,5 +1,5 @@
 #WHAT'S ALL ABOUT?
- Beyond the other C programs, I've created a C libary from scratch, which contains the most basics functions to use to help on Dev. Time.
+ Beyond the others C programs, I've created a C libary from scratch, which contains the most basics functions to use to help on Dev. Time.
  
   #This is the first C libary I've ever done.
     Just for knowledge sake :)
