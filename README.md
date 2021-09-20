@@ -1,5 +1,7 @@
 #WHAT'S ALL ABOUT?
-  This is the first C libary I've ever done.
+ Beyond the other C programs, I've created a C libary from scratch, which contains the most basics functions to use to help on Dev. Time.
+ 
+  #This is the first C libary I've ever done.
     Just for knowledge sake :)
 
 # <h2> The all functions includes:
