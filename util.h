@@ -134,25 +134,28 @@ void file_cp(char *file1, char *file2)
 	fclose(fout);
 }
 // ---------------- ATOI ------------------->
-void *ft_atoi(char *string){
+long long int ft_atoi(char *string){
+        for(int i = 0; i < slen(string); i++)
+                if ((string[i] < 0x30 || string[i] > 0x39) && string[0] != '-'){ //string[0]!='-' 'cause it can be negative.
+                        fputs("\x1b[31m O NUMERO DIGITADO NAO EH VALIDO!\x1b[0m\n\n", stderr);
+                        return -1;
+                }
 
         int len = slen(string);
-        int *result = (int*)malloc(sizeof(int)*slen(string));
-        *result = 0;
+        register long long int result = 0;
         long long int exp = 1;
 
         char *ptr = string;
         ptr += len-1;
 
-        while (ptr >= string){
-                *result += ((*ptr)-0x30) * exp;
+        while (ptr >= string && *ptr != '-'){
+                result += ((*ptr)-0x30) * exp;
                 exp *= 10;
                 ptr--;
         }
 
-        return result;
+        return (string[0]=='-') ? -result : result;
 }
-
 // ---------------- DEC2BIN ------------------->
 void dec2bin(int num){
 
