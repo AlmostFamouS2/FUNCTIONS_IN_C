@@ -9,26 +9,27 @@ int slen(char *s){
         return i;
 }
 
-unsigned int ft_atoi(char *string){
+long long int ft_atoi(char *string){
         for(int i = 0; i < slen(string); i++)
-                if (string[i] < 0x30 || string[i] > 0x39){
+                if ((string[i] < 0x30 || string[i] > 0x39) && string[0] != '-'){ //string[0]!='-' 'cause it can be negative.
                         fputs("\x1b[31m O NUMERO DIGITADO NAO EH VALIDO!\x1b[0m\n\n", stderr);
                         return -1;
                 }
 
         int len = slen(string);
-        register unsigned int result = 0;
+        register long long int result = 0;
         long long int exp = 1;
 
         char *ptr = string;
         ptr += len-1;
 
-        while (ptr >= string){
+        while (ptr >= string && *ptr != '-'){
                 result += ((*ptr)-0x30) * exp;
                 exp *= 10;
                 ptr--;
         }
-        return result;
+
+        return (string[0]=='-') ? -result : result;
 }
 
 int main(int argc, char *argv[]){
