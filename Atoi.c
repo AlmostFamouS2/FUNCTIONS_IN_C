@@ -9,22 +9,25 @@ int slen(char *s){
         return i;
 }
 
-void *ft_atoi(char *string){
+unsigned int ft_atoi(char *string){
+        for(int i = 0; i < slen(string); i++)
+                if (string[i] < 0x30 || string[i] > 0x39){
+                        fputs("\x1b[31m O NUMERO DIGITADO NAO EH VALIDO!\x1b[0m\n\n", stderr);
+                        return -1;
+                }
 
         int len = slen(string);
-        int *result = (int*)malloc(sizeof(int)*slen(string));
-        *result = 0;
+        register unsigned int result = 0;
         long long int exp = 1;
 
         char *ptr = string;
         ptr += len-1;
 
         while (ptr >= string){
-                *result += ((*ptr)-0x30) * exp;
+                result += ((*ptr)-0x30) * exp;
                 exp *= 10;
                 ptr--;
         }
-
         return result;
 }
 
@@ -32,8 +35,12 @@ int main(int argc, char *argv[]){
         if (argc == 1)
                 return -1;
 
-        int *num = ft_atoi(argv[1]);
-        printf("%d\n", (*num) * (*num));
+        register unsigned int num = ft_atoi(argv[1]);
+        if (num == -1){
+                puts("INFELIZMENTE, SEU PROGRAMA NAO RODARA!");
+                return 1;
+        }
+        printf("%lu\n", num * num);
 
 return 0;
 }
