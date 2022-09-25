@@ -133,6 +133,26 @@ void file_cp(char *file1, char *file2)
 	fclose(fin);
 	fclose(fout);
 }
+// ---------------- ATOI ------------------->
+void *ft_atoi(char *string){
+
+        int len = slen(string);
+        int *result = (int*)malloc(sizeof(int)*slen(string));
+        *result = 0;
+        long long int exp = 1;
+
+        char *ptr = string;
+        ptr += len-1;
+
+        while (ptr >= string){
+                *result += ((*ptr)-0x30) * exp;
+                exp *= 10;
+                ptr--;
+        }
+
+        return result;
+}
+
 // ---------------- DEC2BIN ------------------->
 void dec2bin(int num){
 
