@@ -190,6 +190,34 @@ int endswith(char str, char p[]){
 	return (p[_strlen(p) - 1] == str);
 }
 
+// ------------- quicksort in C --------------------------->
+void qsort(int a[], int lo, int hi){
+    int h, l, p, t;
+	
+    if (lo < hi) {
+    	l = lo;
+	h = hi;
+	p = a[hi];
+	    
+	do {
+	    while ((l < h) && (a[l] <= p))
+		   l+=1;
+	    while ((h > l) && (a[h] >= p))
+		   h -= 1;
+	if (l < h) {
+	    t = a[l];
+	    a[l] = a[h];
+	    a[h] = t;
+	}
+	} while (l < h);
+	    
+	a[hi] = a[l];
+	a[l] = p;
+	    
+	qsort(a, lo, l-1);
+	qsort(a, l+1, hi);
+    }
+}
 // ------------- _memcpy--------------------------->
 #if defined __x86_64__
 #define MEM 8
