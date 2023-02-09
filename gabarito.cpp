@@ -16,6 +16,11 @@ int main(void){
 		cout << "Digite o gabarito da nota " << i+1 << " de A-E: ";
 		cin >> q;
 		
+		while (q != 'A' || q!='B'||q!='C'||q!='D'||q!='E'){
+		    cout << "Digite o gabarito da nota " << i+1 << " de A-E: ";
+		    cin >> q;
+		}
+		
 		if(q!=v[i] && q!=g[i]) {
 			cout << "Questao " << i+1 << ", ERRADO!!";
 		}
