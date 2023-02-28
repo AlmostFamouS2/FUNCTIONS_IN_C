@@ -135,13 +135,13 @@ void file_cp(char *file1, char *file2)
 }
 // ---------------- ATOI ------------------->
 long long int ft_atoi(char *string){
-        for(int i = 0; i < slen(string); i++)
+        for(int i = 0; i < _strlen(string); i++)
                 if ((string[i] < 0x30 || string[i] > 0x39) && string[0] != '-'){ //string[0]!='-' 'cause it can be negative.
                         fputs("\x1b[31m O NUMERO DIGITADO NAO EH VALIDO!\x1b[0m\n\n", stderr);
                         return -1;
                 }
 
-        int len = slen(string);
+        int len = _strlen(string);
         register long long int result = 0;
         long long int exp = 1;
 
