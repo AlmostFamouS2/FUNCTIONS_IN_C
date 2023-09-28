@@ -107,6 +107,22 @@ char *to_lower(char* str){
         }
     return str;
 }
+// ----------------- STRBIN ---------------------->
+#include <limits.h>
+
+void strbin( char *p, unsigned int n )
+{
+  int size = sizeof n * CHAR_BIT;
+  int sz = size;
+
+  while ( sz-- )
+  {
+    *p++ = '0' + !!( n & ( 1 << size - 1 ) );
+    n <<= 1;
+  }
+
+  *p = '\0';
+}
 
 // ---------------- STRSRCH ---------------------->
 int strsrch(char *str, char s){
