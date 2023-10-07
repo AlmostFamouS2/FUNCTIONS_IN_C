@@ -248,3 +248,9 @@ size += MEM; // IDK why but... this works only with it
 	while( size-- )
 		*p++ = *q++;
 }
+// ------------- round --------------------------->
+  float rd(float n){
+       float k = (int)n+.5;
+       n = (k >= n) ? k-.5 : k+.5;
+       return n;
+ }
