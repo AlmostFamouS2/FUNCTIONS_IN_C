@@ -248,6 +248,21 @@ size += MEM; // IDK why but... this works only with it
 	while( size-- )
 		*p++ = *q++;
 }
+// ------------- upper --------------------------->
+char *upper(char *str){
+        for (int i = 0; i < slen(str); i++)
+                if (str[i] >= 'a' && str[i] <= 'z')
+                        str[i] -= 32;
+        return str;
+}
+// ------------- lower --------------------------->
+char *lower(char *str){
+        for (int i = 0; i < slen(str); i++)
+                if (str[i] >= 'A' && str[i] <= 'Z')
+                        str[i] += 32;
+        return str;
+}
+
 // ------------- round --------------------------->
   float round(float n){
        float k = (int)n+.5;
