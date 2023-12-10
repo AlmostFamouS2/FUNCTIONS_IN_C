@@ -172,6 +172,15 @@ long long int ft_atoi(char *string){
 
         return (string[0]=='-') ? -result : result;
 }
+// ---------------- Invert_String ------------------->
+void InvertString(String str) {
+    char* begin = str.data;
+    char* end = str.data + str.length - 1;
+
+    while (begin < end)
+        *begin++ = *end--;
+}
+
 // ---------------- DEC2BIN ------------------->
 void dec2bin(int num){
 
