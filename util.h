@@ -62,9 +62,11 @@ return n;
 // -------------- ILEN -> INTEGER LENGHT ----------------------------->
 int ilen(int li[]){
 	int n = 0;
-	while(li[n])
-		n+=4;
-return n;
+	//while(li[n])
+	//	n+=4;
+    while (li[n += 4]) {}
+	
+    return n>>2;  // n/4;
 }
 /*
 int _strlen(char *str){
